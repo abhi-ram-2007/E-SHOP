@@ -83,12 +83,12 @@ export default function SiteHeader() {
   const getProfilePath = () => {
     if (!profile) return "/";
 
-    if (profile.role === "seller") {
-      return "/seller/profile";
+    if (profile.role === "admin") {
+      return "/admin/profile";
     }
 
-    if (profile.role === "admin") {
-      return "/admin";
+    if (profile.role === "seller") {
+      return "/seller/profile";
     }
 
     return "/customer/profile";
@@ -118,7 +118,6 @@ export default function SiteHeader() {
       ===================================================== */}
 
       <header className="relative z-30 border-b border-black/10 bg-[#f7f6f2]">
-
         <div className="page-shell flex h-[76px] items-center justify-between gap-5 md:h-[88px]">
 
           {/* =================================================
@@ -172,7 +171,6 @@ export default function SiteHeader() {
                 </NavLink>
               ))}
             </nav>
-
           </div>
 
           {/* =================================================
@@ -253,7 +251,6 @@ export default function SiteHeader() {
             ================================================= */}
 
             {user ? (
-
               <div className="relative">
 
                 <button
@@ -286,7 +283,6 @@ export default function SiteHeader() {
                     {/* User Info */}
 
                     <div className="border-b border-black/10 px-3 py-3">
-
                       <p className="text-sm font-semibold">
                         {profile?.full_name || "User"}
                       </p>
@@ -298,10 +294,11 @@ export default function SiteHeader() {
                       <p className="mt-2 text-[10px] uppercase tracking-wider text-black/40">
                         {profile?.role || "customer"}
                       </p>
-
                     </div>
 
-                    {/* My Profile */}
+                    {/* =================================================
+                        MY PROFILE
+                    ================================================= */}
 
                     <Link
                       to={getProfilePath()}
@@ -313,7 +310,9 @@ export default function SiteHeader() {
                       My Profile
                     </Link>
 
-                    {/* Dashboard */}
+                    {/* =================================================
+                        DASHBOARD
+                    ================================================= */}
 
                     <Link
                       to={getDashboardPath()}
@@ -325,7 +324,9 @@ export default function SiteHeader() {
                       Dashboard
                     </Link>
 
-                    {/* Logout */}
+                    {/* =================================================
+                        LOGOUT
+                    ================================================= */}
 
                     <button
                       onClick={handleLogout}
@@ -333,12 +334,9 @@ export default function SiteHeader() {
                     >
                       Logout
                     </button>
-
                   </div>
                 )}
-
               </div>
-
             ) : (
 
               /* =================================================
@@ -362,11 +360,8 @@ export default function SiteHeader() {
                 </Link>
 
               </div>
-
             )}
-
           </div>
-
         </div>
 
         {/* =====================================================
@@ -456,12 +451,15 @@ export default function SiteHeader() {
               <ArrowUpRight size={15} />
             </Link>
 
-            {/* Mobile Authentication */}
+            {/* =================================================
+                MOBILE AUTHENTICATION
+            ================================================= */}
 
             <div className="mt-3 border-t border-black/10 pt-3">
 
               {user ? (
                 <>
+
                   {/* Mobile My Profile */}
 
                   <Link
@@ -490,9 +488,11 @@ export default function SiteHeader() {
                   >
                     Logout
                   </button>
+
                 </>
               ) : (
                 <>
+
                   <Link
                     to="/login"
                     onClick={closeMenu}
@@ -508,14 +508,12 @@ export default function SiteHeader() {
                   >
                     Create Account
                   </Link>
+
                 </>
               )}
-
             </div>
-
           </nav>
         )}
-
       </header>
     </>
   );

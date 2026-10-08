@@ -43,6 +43,8 @@ import AdminCustomers from "./pages/admin/AdminCustomers.jsx";
 import AdminSellers from "./pages/admin/AdminSellers.jsx";
 import AdminReviews from "./pages/admin/AdminReviews.jsx";
 import AdminCategories from "./pages/admin/AdminCategories.jsx";
+import AdminProfile from "./pages/admin/AdminProfile.jsx";
+
 
 // Auth
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
@@ -218,7 +220,10 @@ function Storefront() {
               path="/admin"
               element={<AdminDashboard />}
             />
-
+            <Route
+              path="/admin/profile"
+              element={<AdminProfile />}
+            />
             <Route
               path="/admin/products"
               element={<AdminProducts />}
